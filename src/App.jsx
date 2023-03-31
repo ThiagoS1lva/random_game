@@ -51,7 +51,7 @@ function App() {
       <Container className={styles.teste}>
         <h1>Sorteador de Jogos</h1>
         <Row>
-          <Col>
+          <Col lg={3} xs={7}>
             <Form.Control
               type="text"
               placeholder="Digite o nome do jogo"
@@ -64,7 +64,7 @@ function App() {
               Adicionar Jogo
             </Button>
           </Col>
-          <Col>
+          <Col lg={3} xs={7}>
             <Form.Control
               type="text"
               placeholder="Digite o nome do jogo"

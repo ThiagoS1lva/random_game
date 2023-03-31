@@ -22,3 +22,9 @@
     width: 23%;
     border-radius: 10px;
 }
+
+@media (max-width: 768px) {
+    .lista {
+        width: 50%;
+    }
+}
