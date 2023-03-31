@@ -55,7 +55,7 @@ function App() {
   return (
     <>
       <div className={styles.topTittle}>
-        <h1>SORTEADOR DE JOGOS</h1>
+        <span><h1>SORTEADOR DE JOGOS</h1></span>
       </div>
       <Container>
         <Row>
@@ -68,7 +68,7 @@ function App() {
             />
           </Col>
           <Col>
-            <Button variant="primary" onClick={adicionarJogo}>
+            <Button className={styles.btn} variant="primary" onClick={adicionarJogo}>
               Adicionar Jogo
             </Button>
           </Col>
@@ -81,12 +81,12 @@ function App() {
             />
           </Col>
           <Col>
-            <Button variant="danger" onClick={removerJogo}>
+            <Button className={styles.btn} variant="danger" onClick={removerJogo}>
               Remover Jogo
             </Button>
           </Col>
           <Col>
-            <Button variant="success" onClick={sortearJogo}>
+            <Button className={styles.btn} variant="success" onClick={sortearJogo}>
               Sortear
             </Button>
           </Col>

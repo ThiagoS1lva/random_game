@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 * {
     font-family: 'Montserrat', sans-serif;
 }
 
 .Centralizar {
-    padding-top: 5%;
+    padding-top: 1%;
     text-align: center;
     font-size: 30px;
 }
@@ -22,12 +23,6 @@
     border-radius: 10px;
 }
 
-@media (max-width: 768px) {
-    .lista {
-        width: 50%;
-    }
-}
-
 .topTittle {
     display: flex;
     justify-content: center;
@@ -35,11 +30,37 @@
     width: 40%;
     margin: 20px auto 20px auto;
     border-radius: 20px;
-    padding: 2px 0 2px 0;
-    background-color: red;
-    
 }
+
 .topTittle h1 {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Bebas Neue', cursive;
     font-weight: bold;
+}
+
+.topTittle span {
+    font-size: 3em;
+    background-image: linear-gradient(gold, gold);
+    background-size: 100% 10px;
+    background-repeat: no-repeat;
+    background-position: 100% 0%;
+    transition: background-size .7s, background-position .5s ease-in-out;
+    padding-left: 10px;
+    padding-right: 10px;
+
+}
+
+.topTittle span:hover {
+    background-size: 100% 100%;
+    background-position: 0% 100%;
+    transition: background-position .7s, background-size .5s ease-in-out;
+}
+
+.btn {
+    margin-bottom: 5%;
+}
+
+@media (max-width: 768px) {
+    .lista {
+        width: 50%;
+    }
 }
