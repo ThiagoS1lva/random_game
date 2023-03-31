@@ -1,5 +1,6 @@
 # Sorteador de Jogos
 Este é um projeto simples que consiste em uma aplicação web que permite adicionar jogos em uma lista e sortear aleatoriamente um deles.
+Site: https://random-game-beta.vercel.app/
 
 ## Funcionalidades
 - Adicionar jogos na lista
