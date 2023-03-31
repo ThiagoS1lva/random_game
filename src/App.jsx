@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -8,13 +8,21 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Spinner from 'react-bootstrap/Spinner';
 
+
 function App() {
-  const [jogos, setJogos] = useState([]);
+  const [jogos, setJogos] = useState(() => {
+    const jogosLocalStorage = localStorage.getItem('jogos');
+    return jogosLocalStorage ? JSON.parse(jogosLocalStorage) : [];
+  });
   const [novoJogo, setNovoJogo] = useState("");
   const [apagaJogo, setRemoveJogo] = useState("");
   const [jogoSorteado, setJogoSorteado] = useState(null);
   const [mostrarMensagem, setMostrarMensagem] = useState(false);
   const [mostrarSpinner, setMostrarSpinner] = useState(false);
+
+  useEffect(() => {
+    localStorage.setItem('jogos', JSON.stringify(jogos));
+  }, [jogos]);
 
   function adicionarJogo() {
     if (novoJogo) {
@@ -37,19 +45,19 @@ function App() {
       setMostrarMensagem(false);
       setJogoSorteado(jogoEscolhido);
       setMostrarSpinner(true);
-
       setTimeout(() => {
         setMostrarMensagem(true);
         setMostrarSpinner(false);
       }, 2000);
     }
-
   }
 
   return (
     <>
-      <Container className={styles.teste}>
-        <h1>Sorteador de Jogos</h1>
+      <div className={styles.topTittle}>
+        <h1>SORTEADOR DE JOGOS</h1>
+      </div>
+      <Container>
         <Row>
           <Col lg={3} xs={7}>
             <Form.Control
@@ -90,11 +98,22 @@ function App() {
           ))}
         </ul>
 
-        {mostrarSpinner && (<div className={styles.Centralizar}><Spinner animation="grow" /></div>)}
-        {mostrarMensagem && (<div className={styles.Centralizar}><p>O jogo sorteado foi: <b>{jogoSorteado}</b></p></div>)}
+        {mostrarSpinner && (
+          <div className={styles.Centralizar}>
+            <Spinner animation="grow" />
+          </div>
+        )}
+        {mostrarMensagem && (
+          <div className={styles.Centralizar}>
+            <p>
+              O jogo sorteado foi: <b>{jogoSorteado}</b>
+            </p>
+          </div>
+        )}
       </Container>
     </>
   );
 }
+
 
 export default App;
